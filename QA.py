@@ -5,7 +5,7 @@ import io
 
 
 def load_pdf(file):
-    pdf_reader = PdfReader(file)
+    pdf_reader = PdfFileReader(file)
     num_pages = pdf_reader.getNumPages()
     text = ""
     for page in range(num_pages):
