@@ -1,11 +1,11 @@
 import streamlit as st
 from transformers import pipeline
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 import io
 
 
 def load_pdf(file):
-    pdf_reader = PdfFileReader(file)
+    pdf_reader = PdfReader(file)
     num_pages = pdf_reader.getNumPages()
     text = ""
     for page in range(num_pages):
