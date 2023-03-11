@@ -3,19 +3,15 @@ from transformers import pipeline
 from PyPDF2 import PdfFileReader
 import io
 
-
 def load_pdf(file):
-    """
-    Loads the content of a PDF file.
-    """
-    pdf_reader = PdfFileReader(file)
-    num_pages = pdf_reader.getNumPages()
-    text = ""
-    for page in range(num_pages):
-        page_obj = pdf_reader.getPage(page)
-        text += page_obj.extractText()
-    return text
-
+    if file is not None:
+        # Read PDF content
+        pdf_reader = PdfReader(io.BytesIO(file.read()))
+        num_pages = len(pdf_reader.pages)
+        text = ''
+        for page in range(num_pages):
+            page_obj = pdf_reader.pages[page]
+            text += page_obj.extract_text()
 
 def main():
     # Prompt user to upload a PDF file
