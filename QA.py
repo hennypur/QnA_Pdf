@@ -35,8 +35,6 @@ def main():
 
         # Define a list of example questions
         questions = [
-            "Who is Our Client?",
-            "What is Our Client's Gender?",
             "What are the most severe damage Our client's have?",
             "What are the mental, emotions, and other non-physical damage Our Client's have?"
         ]
