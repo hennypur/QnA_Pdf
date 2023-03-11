@@ -5,15 +5,12 @@ import io
 
 
 def load_pdf(file):
-    """
-    Loads the content of a PDF file.
-    """
-    pdf_reader = PdfFileReader(file)
+    pdf_reader = PdfReader(file)
     num_pages = pdf_reader.getNumPages()
     text = ""
     for page in range(num_pages):
         page_obj = pdf_reader.getPage(page)
-        text += page_obj.extractText()
+        text += page_obj.extract_text()
     return text
 
 
