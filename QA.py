@@ -22,7 +22,7 @@ def main():
         text = load_pdf(file)
 
         # Define question answering pipeline
-        choose_model = "distilbert-base-cased-distilled-squad"
+        choose_model = "bert-large-uncased-whole-word-masking-finetuned-squad"
         qa = pipeline("question-answering", model=choose_model)
 
         # Define a function to ask and answer questions
