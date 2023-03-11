@@ -36,26 +36,28 @@ def main():
         # Define a list of example questions
         questions = [
             "What are the most severe damage Our client's have?",
-            "What are the mental, emotions, and other non-physical damage Our Client's have?"
-        ]
+         ]
 
         # Display example questions and answers
-        st.write("Here are some example QnA of the PDF content:")
-        with st.spinner('Answering example questions...'):
-            for question in questions:
-                answer = ask_question(question, text, qa)
-                st.write(f"Q: {question}")
-                st.write(f"A: {answer}\n")
+        display_example_qna = True
+        while display_example_qna:
+            st.write("Here are some example QnA of the PDF content:")
+            with st.spinner('Answering example questions...'):
+                for question in questions:
+                    answer = ask_question(question, text, qa)
+                    st.write(f"Q: {question}")
+                    st.write(f"A: {answer}\n")
 
-        # Allow user to input custom question
-        st.write("Enter your question below:")
-        user_question = st.text_input("", "")
-        if user_question:
-            with st.spinner('Answering your question...'):
-                answer = ask_question(user_question, text, qa)
-                st.write(f"Q: {user_question}")
-                st.write(f"A: {answer}\n")
-
+            # Allow user to input custom question
+            st.write("Enter your question below:")
+            user_question = st.text_input("", "")
+            if user_question:
+                display_example_qna = False
+                with st.spinner('Answering your question...'):
+                    answer = ask_question(user_question, text, qa)
+                    st.write(f"Q: {user_question}")
+                    st.write(f"A: {answer}\n")
+                    
 
 if __name__ == "__main__":
     st.set_page_config(page_title='PDF QnA', page_icon=':books:')
